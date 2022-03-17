@@ -18,23 +18,37 @@
     
         <form action="" method="post">
             {% csrf_token %}
-            <input type="text" name="word" id="word">
+            <input type="text" name="word" id="word" required>
             <input type="submit" value="Search">
         </form>
     
-        {% if word %}
-            <p> <strong> Word: </strong> {{ word }} </p>
-            {% if pronunciation is not None %}
-                <p> <strong> Pronunciation: </strong> {{ pronunciation }} </p>
+        <div id="definitions">
+
+            {% if definitions %}
+                <p> <strong> Word:</strong> {{ word }} </p>
+                <p> <strong> Pronunciation:</strong> {{ pronunciation }} </p>
+                
+                <div id="descriptions">
+                    {% for data in definitions %}
+                        <div class="descriptios">
+                            <p> <strong> Type:</strong> {{ data.type }}</p>
+
+                            <div class="detail">
+                                <p> <strong> Definition:</strong> {{ data.definition }} </p>
+
+                                
+                                    <img class="image" src="{{ data.image_url }}" alt="Image of the word {{ word }}">
+                                
+                            </div>
+
+                            <p> <strong> Example:</strong> {{ data.example }} </p>
+                        </div>
+                    {% endfor %}
+                </div>
             {% endif %}
-            
-            {%  for image in url %}
-                {% if image is not None %}
-                    <img class="image" src="{{ image }}" alt="Image of the word {{ word }}">
-                {% endif %}
-            {% endfor %}
-        {% endif %}
      
+        </div>
+
     </main>
       
 </body>
