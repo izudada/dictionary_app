@@ -1,14 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <title>Document</title>
 </head>
 <body>
-
-    <img src="{{  }}" alt="">
+    <main>
+        <div>
+            {% for message in messages %}
+                <p classs="text-danger"> {{ message }} </p>
+            {% endfor %}
+        </div>
     
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="word" id="word">
+            <input type="submit" value="Search">
+        </form>
+    
+        {% if word %}
+            <p> <strong> Word: </strong> {{ word }} </p>
+            {% if pronunciation is not None %}
+                <p> <strong> Pronunciation: </strong> {{ pronunciation }} </p>
+            {% endif %}
+            
+            {%  for image in url %}
+                {% if image is not None %}
+                    <img class="image" src="{{ image }}" alt="Image of the word {{ word }}">
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+     
+    </main>
+      
 </body>
 </html>
