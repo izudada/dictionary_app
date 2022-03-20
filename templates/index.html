@@ -45,8 +45,9 @@
                             <div class="detail">
                                 <p> <strong> Definition:</strong> {{ data.definition }} </p>
 
-                                
-                                    <img class="image" src="{{ data.image_url }}" alt="Image of the word {{ word }}">
+                                    {% if data.image_url  %}
+                                        <img class="image" src="{{ data.image_url }}" alt="Image of the word {{ word }}">
+                                    {% endif %}
                                 
                             </div>
 
