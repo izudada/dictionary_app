@@ -50,4 +50,5 @@ input {
 
 input[type="submit"], input[type="button"] {
     background-color: transparent;
+    cursor: pointer;
 }
