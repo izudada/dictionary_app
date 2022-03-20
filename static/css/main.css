@@ -12,19 +12,14 @@ form {
 }
 
 .description{
-    border: 2px solid red;
     padding: 5px 30px;
     display: flex;
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
 }
 
-/* .detail{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
+.detail{
+    width: 60%;
+}
 
 .image {
     width: 20%;
