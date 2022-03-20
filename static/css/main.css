@@ -21,8 +21,12 @@ form {
     width: 60%;
 }
 
-.description p, .description img {
+.description p {
     margin-bottom: -14px;
+}
+
+.description img {
+    margin-top: 20px;
 }
 
 .image {
