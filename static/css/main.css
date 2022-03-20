@@ -12,13 +12,17 @@ form {
 }
 
 .description{
-    padding: 5px 30px;
+    padding: 10px 30px;
     display: flex;
     flex-direction: column;
 }
 
 .detail{
     width: 60%;
+}
+
+.description p, .description img {
+    margin-bottom: -14px;
 }
 
 .image {
