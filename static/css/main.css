@@ -1,20 +1,53 @@
 body{
+    padding-top: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 80%;
+}
+
+#definitions{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    justify-content: center;
 }
 
-#description {
+form {
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+}
+
+#descriptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.description{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .detail{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .image {
     width: 20%;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="submit"], input[type="button"] {
+    background-color: transparent;
 }
