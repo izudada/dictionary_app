@@ -11,19 +11,13 @@ form {
     width: 100%;
 }
 
-#descriptions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .description{
     border: 2px solid red;
+    padding: 5px 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
 }
 
 /* .detail{
