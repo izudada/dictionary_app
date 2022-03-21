@@ -9,6 +9,11 @@ def index(request):
     
     if request.method == "POST":
         word = request.POST.get('word')
+
+        if len(word) < 1:
+            messages.error(request, "Please input a valid word")
+            return render(request, "index.html")
+
         context = {}
         Token = settings.OWL_TOKEN
         url = f"https://owlbot.info/api/v4/dictionary/{word}"
