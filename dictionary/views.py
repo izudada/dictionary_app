@@ -6,6 +6,19 @@ import requests
 
 
 def index(request):
+    """
+        A view for both GET and POST request. For rendering a page
+        and getting the user data.
+
+        If a word is found/is valid, a dictionary of denition(s) is sent
+        back to the user; else a response error is.
+
+        Variables:
+                word - Stores the input of the user
+                Token - Stores the owl API access token
+                url - A cobination of user data and part of owl API endpoint
+
+    """
     
     if request.method == "POST":
         word = request.POST.get('word')
