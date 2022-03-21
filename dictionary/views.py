@@ -27,6 +27,9 @@ def index(request):
 
         result = response.json()
         
+        if type(result) == list:
+            messages.error(request, f"The word \"{word}\" wasn't found")
+            return render(request, "index.html")
 
         return render(request, "index.html", result)
     else:
