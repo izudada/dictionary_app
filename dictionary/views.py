@@ -28,7 +28,6 @@ def index(request):
             messages.error(request, "Please input a valid word")
             return render(request, "index.html")
 
-        context = {}
         Token = settings.OWL_TOKEN
         url = f"https://owlbot.info/api/v4/dictionary/{word}"
 
