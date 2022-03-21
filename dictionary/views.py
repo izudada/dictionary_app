@@ -10,6 +10,7 @@ def index(request):
     if request.method == "POST":
         word = request.POST.get('word')
 
+        #   Chec if word is valid
         if len(word) < 1:
             messages.error(request, "Please input a valid word")
             return render(request, "index.html")
@@ -18,6 +19,7 @@ def index(request):
         Token = settings.OWL_TOKEN
         url = f"https://owlbot.info/api/v4/dictionary/{word}"
 
+        #   Handling request errors
         try:
             response = requests.get(url, headers={"Authorization": 'Token ' + Token})
         except requests.exceptions.Timeout:
@@ -32,6 +34,7 @@ def index(request):
 
         result = response.json()
         
+        #   Check if a valid response was returned
         if type(result) == list:
             messages.error(request, f"The word \"{word}\" wasn't found")
             return render(request, "index.html")
