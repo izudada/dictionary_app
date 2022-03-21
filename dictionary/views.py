@@ -16,16 +16,17 @@ def index(request):
         try:
             response = requests.get(url, headers={"Authorization": 'Token ' + Token})
         except requests.exceptions.Timeout:
-            messages.success(request, "You have made too many failed attempts")
+            messages.error(request, "You have made too many failed attempts")
             return render(request, "index.html")
         except requests.exceptions.ConnectionError:
-            messages.success(request, "There is an issue with your internet connection, please reconnect.")
+            messages.error(request, "There is an issue with your internet connection, please reconnect.")
             return render(request, "index.html")
         except requests.exceptions.RequestException:
-            messages.success(request, f"Failed to get the word {word}, please try again")
+            messages.error(request, f"Failed to get the word {word}, please try again")
             return render(request, "index.html")
 
         result = response.json()
+        
 
         return render(request, "index.html", result)
     else:
