@@ -1,3 +1,4 @@
+from urllib import response
 from django.test import SimpleTestCase
 
 
@@ -8,3 +9,7 @@ class URRTests(SimpleTestCase):
         """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+    
+    def test_get_invalid_url(self):
+        response = self.client.get('/word')
+        self.assertEqual(response.status_code, 404)
