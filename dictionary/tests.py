@@ -5,7 +5,7 @@ from django.urls import resolve, reverse
 from .views import index
 
 
-class URRTests(SimpleTestCase):
+class TestURLs(SimpleTestCase):
     def test_get_index_url(self):
         """
             Test to successfully get the index page/url
