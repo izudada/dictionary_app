@@ -23,4 +23,9 @@ class TestURLs(SimpleTestCase):
 
 
 class TestViews(TestCase):
-    pass
+    
+    def test_index_GET(self):
+        client = Client()
+        response = client.get(reverse('index'))
+        self.assertAlmostEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
