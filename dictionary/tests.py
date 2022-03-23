@@ -1,5 +1,5 @@
 from urllib import response
-from django.test import SimpleTestCase
+from django.test import Client, SimpleTestCase, TestCase
 from django.urls import resolve, reverse
 
 from .views import index
@@ -20,3 +20,7 @@ class TestURLs(SimpleTestCase):
     def test_index_url_is_resolved(self):
         url = reverse('index')
         self.assertEquals(resolve(url).func, index)
+
+
+class TestViews(TestCase):
+    pass
